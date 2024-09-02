@@ -7,7 +7,7 @@ const Participation = require('../models/participationModal');
 
 module.exports = async (client) => {
     console.log(`${client.user.tag} Bot Online!`)
-    client.user.setPresence({ activities: [{ name: 'kihtyn code me...', type: ActivityType.Watching }], status: "idle"});
+    client.user.setPresence({ activities: [{ name: 'the glisten files ✨', type: ActivityType.Listening }], status: "idle"});
 
     const schedule = '0 18 * * 5';
 
