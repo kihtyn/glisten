@@ -2,12 +2,14 @@ const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle, ModalBuilder
 const config = require('../config.json');
 const Participation = require('../models/participationModal');
 const client = require('..');
+const noblox = require('noblox.js');
+const axios = require('axios');
 
 let sessionMessageId;
 
-let guildMainId = '1267227636321489018';
-let loggingChannelId = '1276623580972584980';
-let sessionNotifcationChannelId = '1276631195337101384';
+let guildMainId = '296064078240284683';
+let loggingChannelId = '1038502352711331902';
+let sessionNotifcationChannelId = '1039685086750187581';
 
 module.exports = {
     name: "session",
@@ -26,9 +28,19 @@ module.exports = {
     ],
     run: async (client, interaction) => {
         if (interaction.options.getSubcommand() === 'start') {
+
+            const { data } = await axios.get(`https://api.blox.link/v4/public/guilds/296064078240284683/discord-to-roblox/${interaction.user.id}`, 
+                { headers: { "Authorization": "f77a1254-0e72-4f18-88c9-5252e0df7d7e" } }
+            )
+
+            console.log(data)
+
+            const RobloxUserId = data.robloxID
+            const robloxName = await noblox.getUsernameFromId(RobloxUserId);
+
             const sessionEmbed = new EmbedBuilder()
                 .setTitle(`${config.bot_name} Session Notification`)
-                .setAuthor({ name: `kihtyn`, iconURL: 'https://api.kiht.sh/users/kihtyn/avatar?color=true' })
+                .setAuthor({ name: `${robloxName}`, iconURL: `https://api.kiht.sh/users/${RobloxUserId}/avatar?color=true` })
                 .setDescription(`A **regular** session is now being hosted at the homestore by **${interaction.user.tag}**. Come on down, check out some new clothes and chat with the community!`)
                 .setColor(config.colours.default)
                 .setFooter({ text: `${config.bot_name}`, iconURL: client.user.avatarURL() })
