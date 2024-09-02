@@ -1,0 +1,20 @@
+{
+    "bot_name": "glisten.",
+    "colours": {
+        "default": "#70aafa",
+        "success": "#3fb97c",
+        "error": "#c34e4e",
+        "info": "#0000FF",
+        "warning": "#FFA500"
+    },
+    "mongoURI": "mongodb+srv://glisten:zckRw0U47wHLp7qk@k1e.ev7xh.mongodb.net/",
+    "emojis": {
+        "yes": "<:check:1276638762620944557>",
+        "no": "<:xmark:1276638718123442280>"
+    },
+    "bot_config": {
+        "token": "MTI3NjYyMjIzNjExMDk1MDQ4NQ.GtRPRU.zNS_hTua5e5yaJkY1VVHX5gpV1mbko9eHNHZZ0",
+        "client_id": "1276622236110950485",
+        "client_secret": ""
+    }
+}
