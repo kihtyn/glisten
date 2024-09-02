@@ -57,7 +57,7 @@ module.exports = {
             const guild = await client.guilds.fetch(guildMainId);
             const channel = await guild.channels.fetch(sessionNotifcationChannelId);
 
-            const sentMessage = await channel.send({ embeds: [sessionEmbed], components: [sessionActionRow] });
+            const sentMessage = await channel.send({ content: "<@&982539249867952128>", embeds: [sessionEmbed], components: [sessionActionRow] });
             sessionMessageId = sentMessage.id;
 
             interaction.reply({ content: `${config.emojis.yes} Oooh.. have a good session, ${interaction.user.tag}`, ephemeral: true });
